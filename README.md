@@ -14,7 +14,9 @@ Works with any Yubico key (vendor ID `1050`) that has a keyboard interface.
 
 ## Install
 
-Run `yubiswitch-setup-<version>.exe`. The wizard has a **Start yubiswitch when I log on** checkbox,
+Download `yubiswitch-setup-<version>.exe` from
+[Releases](https://github.com/Zafnok/yubiswitch-windows/releases) and run it. The installer isn't
+code signed, so Windows SmartScreen may warn you the first time. The wizard has a **Start yubiswitch when I log on** checkbox,
 which starts the app at logon with no UAC prompt. It only works if the account you install from is
 an administrator and is the one you log on with. Run the wizard again to change that choice.
 Uninstalling closes the app, unlocks the key, and removes the logon task.
