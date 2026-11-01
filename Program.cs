@@ -22,7 +22,7 @@ public static class Program
         }
 
         int seconds = args.Length > 0 && int.TryParse(args[0], out int s) && s > 0 && s <= 86400 ? s : 60;
-        using (new Mutex(true, @"Global\yubiswitch", out bool first))
+        using (new Mutex(true, @"Global\yubiswitch-windows", out bool first))
         {
             if (first) Application.Run(new TrayApp(seconds));
         }
@@ -173,13 +173,13 @@ public class TrayApp : ApplicationContext
         }
         catch (Exception e)
         {
-            tray.ShowBalloonTip(5000, "yubiswitch", e.Message, ToolTipIcon.Error);
+            tray.ShowBalloonTip(5000, "yubiswitch-windows",e.Message, ToolTipIcon.Error);
         }
         if (!locked) autoLock.Start();
 
         bool failed = locked && YubiKey.AnyRunning;
         if (failed)
-            tray.ShowBalloonTip(5000, "yubiswitch", "Could not lock the YubiKey.", ToolTipIcon.Error);
+            tray.ShowBalloonTip(5000, "yubiswitch-windows","Could not lock the YubiKey.", ToolTipIcon.Error);
 
         tray.Icon = locked && !failed ? lockedIcon : unlockedIcon;
         tray.Text = failed ? "YubiKey NOT locked" : locked ? "YubiKey locked" : $"YubiKey unlocked, locks after {seconds}s";

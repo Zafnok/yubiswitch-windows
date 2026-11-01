@@ -1,4 +1,4 @@
-# yubiswitch for Windows
+# yubiswitch-windows
 
 A tray icon that stops your YubiKey typing OTP strings when it gets touched by accident. It's
 inspired by [yubiswitch](https://github.com/pallotron/yubiswitch) for macOS, but is an unaffiliated
@@ -14,9 +14,9 @@ Works with any Yubico key (vendor ID `1050`) that has a keyboard interface.
 
 ## Install
 
-Download `yubiswitch-setup-<version>.exe` from
+Download `yubiswitch-windows-setup-<version>.exe` from
 [Releases](https://github.com/Zafnok/yubiswitch-windows/releases) and run it. The installer isn't
-code signed, so Windows SmartScreen may warn you the first time. The wizard has a **Start yubiswitch when I log on** checkbox,
+code signed, so Windows SmartScreen may warn you the first time. The wizard has a **Start yubiswitch-windows when I log on** checkbox,
 which starts the app at logon with no UAC prompt. It only works if the account you install from is
 an administrator and is the one you log on with. Run the wizard again to change that choice.
 Uninstalling closes the app, unlocks the key, and removes the logon task.
@@ -26,7 +26,7 @@ requires them. To use a different timer, quit the app, then start it with the nu
 from 1 to 86400:
 
 ```bash
-yubiswitch.exe 300
+yubiswitch-windows.exe 300
 ```
 
 This only lasts until the app closes. The logon task always uses the default 60 seconds.
@@ -41,7 +41,7 @@ dotnet build -c Release
 ```
 
 ```bash
-ISCC.exe installer\yubiswitch.iss
+ISCC.exe installer\yubiswitch-windows.iss
 ```
 
 The installer ends up in `bin\installer`. To regenerate the icons, run `tools\make-icons.ps1`.
