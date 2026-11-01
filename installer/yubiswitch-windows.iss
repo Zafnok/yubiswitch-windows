@@ -1,5 +1,5 @@
 ; Build with: ISCC.exe installer\yubiswitch-windows.iss (after dotnet build -c Release)
-#define AppVersion "1.0.0"
+#define AppVersion "1.0.1"
 
 [Setup]
 AppId={{A7A7044D-50A8-4130-8D3A-BF13B561E158}
